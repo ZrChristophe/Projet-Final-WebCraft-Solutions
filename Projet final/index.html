@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebCraft Solutions — Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo2.avif" alt="WebCraft Solutions" class="logo-img">
+                </a>
+            </div>
+            <nav aria-label="Navigation principale">
+                <ul class="nav">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="propos.html">À propos</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title" class="hero-title">Nous façonnons des expériences numériques</h1>
+                <p class="hero-sub">Agence digitale — UI/UX, développement front & back, accompagnement produit.</p>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section class="container portfolio-section" aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title">Portfolio</h2>
+            
+            <!-- Controls -->
+            <div class="controls">
+                <div id="filters" class="filters" role="toolbar" aria-label="Filtrer par technologie">
+                    <button class="filter-btn active" data-tech="all">Tous</button>
+                </div>
+                <div class="search-wrap">
+                    <input type="search" id="search" placeholder="Rechercher un projet..." aria-label="Rechercher un projet">
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projectsGrid" class="projects-grid" aria-live="polite">
+                <!-- cartes projet insérées via JS -->
+            </div>
+
+            <div id="errorBox" class="error-box" role="alert" hidden></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> WebCraft Solutions. Tous droits réservés.</p>
+            <nav class="socials" aria-label="Liens réseaux sociaux">
+                <a href="https://x.com/" aria-label="X">X</a> ·
+                <a href="https://www.linkedin.com/feed/" aria-label="LinkedIn">LinkedIn</a> ·
+                <a href="https://github.com/" aria-label="GitHub">GitHub</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Détails du projet">
+        <div class="modal-dialog">
+            <button class="modal-close" id="modalClose" aria-label="Fermer la fenêtre">&times;</button>
+            <div id="modalContent">
+                <!-- contenu inséré par JS -->
+            </div>
+        </div>
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+    </div>
+</body>
+</html>

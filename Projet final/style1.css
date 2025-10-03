@@ -1,0 +1,282 @@
+/* Variables CSS */
+:root {
+  --primary-color: #0ea5e9; /* bleu principal */
+  --text-color: #0f172a; /* texte sombre sur fond clair bleu */
+  --heading-color: #2121d9; /* titres principaux */
+  --bg-color: #e0f7ff; /* fond bleu clair */
+  --header-bg: #1e1e2f;
+  --header-text: #fff;
+  --card-bg: #ffffff; /* fond des cartes */
+  --shadow: 0 8px 20px rgba(0,0,0,0.05);
+  --radius: 10px;
+  --gap: 2rem;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--primary-color);
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+/* Main Section */
+main {
+  padding: 4rem 0;
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.3rem; margin-top: 0.5rem; }
+
+/* About Section */
+.about-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Stats Section */
+.stats {
+  background-color: var(--card-bg);
+  padding: 3rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 4rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+
+.stat {
+  margin-bottom: 1rem;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.stat:hover .number {
+  transform: scale(1.1);
+}
+
+.label {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Team Section */
+.team {
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  width: 200px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(135deg, var(--header-bg), #2b2b45);
+  color: var(--header-text);
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.site-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.site-footer a:hover {
+  opacity: 0.8;
+}
+
+/* Animations (fadeIn) */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+section:nth-of-type(2) { animation-delay: 0.2s; }
+section:nth-of-type(3) { animation-delay: 0.4s; }
+section:nth-of-type(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner { flex-direction: column; gap: 1rem; }
+  .nav { flex-direction: column; gap: 1rem; }
+  .stats-grid,
+  .team-grid { flex-direction: column; gap: 2rem; }
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0f172a;       
+    --text-color: #f0f9ff;      
+    --heading-color: #e0f7ff;   
+    --header-bg: #263254;       
+    --header-text: #f0f9ff;    
+    --card-bg: #1e293b; 
+    --shadow: 0 8px 20px rgba(0,0,0,0.4);
+    --primary-color: #38bdf8;   
+
+  }
+}
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  h1, h2, h3 {
+    color: var(--heading-color);
+  }
+
+  .site-header, .site-footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+  }
+
+  .stats, .team-member {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+  }
+
+  .nav a {
+    color: var(--header-text);
+  }
+
+  .nav a:hover,
+  .nav a.active {
+    color: var(--primary-color);
+  }
+
+  .site-footer a {
+    color: var(--primary-color);
+  }
